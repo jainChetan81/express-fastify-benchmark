@@ -3,7 +3,6 @@ const json = require('./big-json.json')
 
 const express = require('express')
 const helmet = require('helmet')
-const hpp = require('hpp')
 const compression = require('compression')
 const logger = require('morgan')
 const cookieParser = require('cookie-parser')
@@ -30,7 +29,6 @@ app.use(
   })
 )
 // Prevent HTTP parameter pollution
-app.use(hpp())
 // Compress all requests
 app.use(compression())
 // global config
