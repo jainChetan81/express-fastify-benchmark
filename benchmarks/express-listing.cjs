@@ -38,4 +38,4 @@ app.use(compression())
 app.use(logger('dev', { skip: (_, res) => res.statusCode < 400 }))
 app.use(express.static(path.resolve(process.cwd(), 'public')))
 
-app.listen(8000)
+app.listen(3000)

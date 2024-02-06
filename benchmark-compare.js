@@ -52,7 +52,7 @@ function updateReadme () {
 * __Machine:__ ${machineInfo}
 * __Node:__ \`${process.version}\`
 * __Run:__ ${new Date()}
-* __Method:__ \`autocannon -c 100 -d 40 -p 10 localhost:8000\` (two rounds; one to warm-up, one to measure)
+* __Method:__ \`autocannon -c 100 -d 40 -p 10 localhost:3000\` (two rounds; one to warm-up, one to measure)
 
 ${compareResults(true)}
 `

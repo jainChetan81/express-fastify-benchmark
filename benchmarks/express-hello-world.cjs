@@ -11,4 +11,4 @@ app.get('/', function (req, res) {
   res.json({ hello: 'world' })
 })
 
-app.listen(8000)
+app.listen(3000)

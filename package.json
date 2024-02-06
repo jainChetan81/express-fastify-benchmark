@@ -7,6 +7,7 @@
 	"scripts": {
 		"start": "node benchmark.js",
 		"benchmark": "node ./benchmark compare -t",
+		"readme": "node ./benchmark compare -u",
 		"compare": "node benchmark.js compare --",
 		"test": "standard | snazzy",
 		"standard": "standard | snazzy",

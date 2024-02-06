@@ -5,7 +5,7 @@ const server = fastify()
 
 const loadingTime = process.hrtime(start)
 
-server.listen({ port: 8000 }, () => {
+server.listen({ port: 3000 }, () => {
   const listenTime = process.hrtime(start)
   require('node:fs').writeFileSync(`${__filename}.txt`, `${loadingTime} | ${listenTime}\n`, { encoding: 'utf-8', flag: 'a' })
   server.close()
