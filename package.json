@@ -32,7 +32,7 @@
 		"express": "^4.18.2",
 		"fastify": "^4.10.2",
 		"inquirer": "^9.1.4",
-		"ora": "^6.1.2"
+		"ora": "^8.0.1"
 	},
 	"devDependencies": {
 		"snazzy": "^9.0.0",
