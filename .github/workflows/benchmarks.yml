@@ -33,7 +33,7 @@ jobs:
     - name: commit and push updated results
       uses: github-actions-x/commit@v2.9
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        github-token: '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'
         push-branch: 'master'
         commit-message: 'chore: update benchmark results'
         force-add: 'true'
