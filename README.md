@@ -50,12 +50,12 @@ benchmark [arguments (optional)]
 
 * __Machine:__ darwin x64 | 8 vCPUs | 8.0GB Mem
 * __Node:__ `v20.11.0`
-* __Run:__ Tue Feb 06 2024 18:31:17 GMT+0530 (India Standard Time)
-* __Method:__ `autocannon -c 100 -d 40 -p 10 localhost:3000` (two rounds; one to warm-up, one to measure)
+* __Run:__ Tue Feb 06 2024 19:22:28 GMT+0530 (India Standard Time)
+* __Method:__ `autocannon -c 100 -d 40 -p 10 localhost:8000` (two rounds; one to warm-up, one to measure)
 
-|                          | Version | Router | Requests/s | Latency (ms) | Throughput/Mb |
-| :--                      | --:     | --:    | :-:        | --:          | --:           |
-| fastify                  | 4.26.0  | ✓      | 23281.7    | 42.48        | 4.17          |
-| express                  | 4.18.2  | ✓      | 6509.5     | 152.93       | 1.16          |
-| fastify-big-json         | 4.26.0  | ✓      | 6283.4     | 158.43       | 72.29         |
-| express-with-middlewares | 4.18.2  | ✓      | 5456.3     | 182.38       | 2.03          |
+|                     | Version | Router | Requests/s | Latency (ms) | Throughput/Mb |
+| :--                 | --:     | --:    | :-:        | --:          | --:           |
+| fastify-hello-world | 4.26.0  | ✓      | 15355.3    | 64.74        | 2.75          |
+| fastify-listing     | 4.26.0  | ✓      | 6732.5     | 147.81       | 77.46         |
+| express-hello-world | 4.18.2  | ✓      | 6465.8     | 153.91       | 1.15          |
+| express-listing     | 4.18.2  | ✓      | 5184.6     | 192.75       | 1.08          |

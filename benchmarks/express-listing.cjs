@@ -1,4 +1,5 @@
 "use strict";
+const json = require("./big-json.json");
 
 const express = require("express");
 
@@ -10,7 +11,7 @@ app.disable("x-powered-by");
 app.use(require("cors")());
 
 app.get("/", function (req, res) {
-	res.json({ hello: "world" });
+	res.json(json);
 });
 
-app.listen(3000);
+app.listen(8000);

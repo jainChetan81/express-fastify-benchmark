@@ -6,6 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"start": "node benchmark.js",
+		"benchmark": "node ./benchmark compare -t",
 		"compare": "node benchmark.js compare --",
 		"test": "standard | snazzy",
 		"standard": "standard | snazzy",
