@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - test
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron:  '0 0 * * 1'
@@ -34,7 +34,7 @@ jobs:
       uses: github-actions-x/commit@v2.9
       with:
         github-token: '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'
-        push-branch: 'main'
+        push-branch: 'test'
         commit-message: 'chore: update benchmark results'
         force-add: 'true'
         files: benchmark-results.json README.md
