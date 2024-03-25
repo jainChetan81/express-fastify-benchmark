@@ -1,52 +1,53 @@
 {
-	"name": "fastify-benchmarks",
-	"version": "1.0.0",
-	"description": "Benchmarks for Fastify, a fast and low-overhead web framework.",
-	"main": "index.js",
-	"type": "module",
-	"scripts": {
-		"start": "node benchmark.js",
-		"benchmark": "node ./benchmark compare -t",
-		"readme": "node ./benchmark compare -u",
-		"compare": "node benchmark.js compare --",
-		"test": "standard | snazzy",
-		"standard": "standard | snazzy",
-		"metrics:run": "node metrics/startup.cjs",
-		"metrics:summary": "node metrics/process-results.cjs -u"
-	},
-	"bin": {
-		"benchmark": "benchmark.js"
-	},
-	"standard": {
-		"ignore": [
-			"lib/packages.js"
-		]
-	},
-	"license": "MIT",
-	"dependencies": {
-		"@fastify/compress": "^7.0.0",
-		"@fastify/cookie": "^9.3.1",
-		"@fastify/helmet": "^11.1.1",
-		"@fastify/static": "^7.0.0",
-		"autocannon": "^7.10.0",
-		"autocannon-compare": "^0.4.0",
-		"benchmark": "^2.1.4",
-		"chalk": "^5.2.0",
-		"cli-table": "^0.3.11",
-		"commander": "^12.0.0",
-		"compression": "^1.7.4",
-		"cookie-parser": "^1.4.6",
-		"cors": "^2.8.5",
-		"express": "^4.18.2",
-		"fastify": "^4.10.2",
-		"helmet": "^7.1.0",
-		"inquirer": "^9.1.4",
-		"logger": "^0.0.1",
-		"morgan": "^1.10.0",
-		"ora": "^8.0.1"
-	},
-	"devDependencies": {
-		"snazzy": "^9.0.0",
-		"standard": "^17.0.0"
-	}
+  "name": "fastify-benchmarks",
+  "version": "1.0.0",
+  "description": "Benchmarks for Fastify, a fast and low-overhead web framework.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node benchmark.js",
+    "benchmark": "node ./benchmark compare -t",
+    "readme": "node ./benchmark compare -u",
+    "compare": "node benchmark.js compare --",
+    "test": "standard | snazzy",
+    "standard": "standard | snazzy",
+    "metrics:run": "node metrics/startup.cjs",
+    "metrics:summary": "node metrics/process-results.cjs -u"
+  },
+  "bin": {
+    "benchmark": "benchmark.js"
+  },
+  "standard": {
+    "ignore": [
+      "lib/packages.js"
+    ]
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@fastify/compress": "^7.0.0",
+    "@fastify/cookie": "^9.3.1",
+    "@fastify/helmet": "^11.1.1",
+    "@fastify/static": "^7.0.0",
+    "autocannon": "^7.10.0",
+    "autocannon-compare": "^0.4.0",
+    "benchmark": "^2.1.4",
+    "chalk": "^5.2.0",
+    "cli-table": "^0.3.11",
+    "commander": "^12.0.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "fast-json-stringify": "^5.13.0",
+    "fastify": "^4.10.2",
+    "helmet": "^7.1.0",
+    "inquirer": "^9.1.4",
+    "logger": "^0.0.1",
+    "morgan": "^1.10.0",
+    "ora": "^8.0.1"
+  },
+  "devDependencies": {
+    "snazzy": "^9.0.0",
+    "standard": "^17.0.0"
+  }
 }

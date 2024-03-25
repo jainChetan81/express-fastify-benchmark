@@ -16,14 +16,11 @@ app.disable("etag");
 app.disable("x-powered-by");
 
 app.use(require("cors")());
-const stringify = fastJson(opts);
+const stringify = fastJson(opts.schema.response[200].properties);
 
 app.get("/", function (req, res) {
 	const body = stringify(json);
-
-	// content-type
 	res.set("Content-Type", "application/json");
-
 	res.end(body);
 });
 app.use(cookieParser());
