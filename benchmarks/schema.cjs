@@ -238,7 +238,86 @@ const opts = {
 						}
 					},
 					constantData: {
-						type: "object"
+						type: "object",
+						properties: {
+							filter_constant: {
+								type: "object",
+								properties: {
+									emi: {
+										type: "object",
+										properties: {
+											display_name: { type: "string" },
+											field_type: { type: "string" },
+											options: { type: "object", properties: { key: { type: "string" }, value: { type: "string" } } },
+											applied_values: { type: "object", properties: { min: { type: "string" }, max: { type: "string" } } }
+										}
+									},
+									price: {
+										type: "object",
+										properties: {
+											display_name: { type: "string" },
+											field_type: { type: "string" },
+											options: { type: "object", properties: { key: { type: "string" }, value: { type: "string" } } },
+											applied_values: { type: "object", properties: { min: { type: "string" }, max: { type: "string" } } }
+										}
+									},
+									min_price: {
+										type: "object",
+										properties: {
+											display_name: { type: "string" },
+											field_type: { type: "string" },
+											is_required: { type: "boolean" },
+											is_display_required: { type: "boolean" }
+										}
+									},
+									max_price: {
+										type: "object",
+										properties: {
+											display_name: { type: "string" },
+											field_type: { type: "string" },
+											is_required: { type: "boolean" },
+											is_display_required: { type: "boolean" }
+										}
+									},
+									min_year: {
+										type: "object",
+										properties: {
+											display_name: { type: "string" },
+											field_type: { type: "string" },
+											options: { type: "object", properties: { key: { type: "string" }, applied: { type: "boolean" }, value: { type: "integer" } } }
+										}
+									},
+									max_mileage: {
+										type: "object",
+										properties: {
+											display_name: { type: "string" },
+											field_type: { type: "string" },
+											options: { type: "object", properties: { key: { type: "string" }, applied: { type: "boolean" }, value: { type: "integer" } } }
+										}
+									},
+									fuel_type: {
+										type: "object",
+										properties: {
+											display_name: { type: "string" },
+											field_type: { type: "string" },
+											options: { type: "object", properties: { key: { type: "string" }, applied: { type: "boolean" }, value: { type: "integer" } } }
+										}
+									},
+									no_of_owners: { type: "object" },
+									transmission: { type: "object" },
+									body_type: { type: "object" },
+									color: { type: "object" },
+									hub: { type: "object" },
+									rto: { type: "object" },
+									lifestyle_category: { type: "object" },
+									availability: { type: "object" },
+									attribute: { type: "object" },
+									car_category: { type: "object" },
+									seats: { type: "object" },
+									make_model: { type: "object" }
+								}
+							}
+						}
 					}
 				}
 			}
