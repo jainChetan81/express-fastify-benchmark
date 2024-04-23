@@ -15,16 +15,21 @@ fastifyApp.register(require("@fastify/helmet"), {
 	global: true
 });
 
-// Compress all requests
 fastifyApp.register(require("@fastify/compress"), { global: false });
 
-// Use for http request debug (show errors only)
 fastifyApp.register(require("@fastify/static"), {
 	root: path.join(process.cwd(), "public"),
-	wildcard: false,
-	prefix: "/" // optional: default '/'
+	wildcard: false
 });
-fastify.get("/", opts, function (request, reply) {
+
+for (let i = 0; i < 50; i++) {
+	fastify.get(`/test${i}`, async function (req, res) {
+		res.send({ number: i });
+	});
+}
+
+fastify.get("/", opts, async function (request, reply) {
+	await new Promise((resolve) => setTimeout(resolve, 100));
 	reply.send(json);
 });
 

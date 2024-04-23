@@ -17,8 +17,14 @@ app.disable("x-powered-by");
 
 app.use(require("cors")());
 const stringify = fastJson(opts.schema.response[200].properties);
+for (let i = 0; i < 50; i++) {
+	app.get(`/test${i}`, async function (req, res) {
+		res.send({ number: i });
+	});
+}
 
-app.get("/", function (req, res) {
+app.get("/", async function (req, res) {
+	await new Promise((resolve) => setTimeout(resolve, 100));
 	const body = stringify(json);
 	res.set("Content-Type", "application/json");
 	res.end(body);
@@ -33,11 +39,8 @@ app.use(
 		crossOriginOpenerPolicy: false
 	})
 );
-// Prevent HTTP parameter pollution
 // Compress all requests
 app.use(compression());
-// global config
-// Use for http request debug (show errors only)
 app.use(logger("dev", { skip: (_, res) => res.statusCode < 400 }));
 app.use(express.static(path.resolve(process.cwd(), "public")));
 
