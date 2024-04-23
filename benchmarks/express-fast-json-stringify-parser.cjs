@@ -50,7 +50,15 @@ function Employee({ id = 0, title = "", employer = "" } = {}) {
 	this.employer = employer;
 }
 const stringify = fastJson(opts);
-app.get("/", function (req, res) {
+
+for (let i = 0; i < 200; i++) {
+	app.get(`/test${i}`, async function (req, res) {
+		res.send({ number: i });
+	});
+}
+
+app.get("/", async function (req, res) {
+	await new Promise((resolve) => setTimeout(() => resolve, 200));
 	const jobs = [];
 
 	for (let i = 0; i < 200; i += 1) {

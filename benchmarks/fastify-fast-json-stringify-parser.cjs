@@ -38,7 +38,13 @@ function Employee({ id = 0, title = "", employer = "" } = {}) {
 	this.title = title;
 	this.employer = employer;
 }
-fastify.get("/", opts, function (request, reply) {
+for (let i = 0; i < 200; i++) {
+	fastify.get(`/test${i}`, async function (req, reply) {
+		reply.send({ number: i });
+	});
+}
+fastify.get("/", opts, async function (request, reply) {
+	await new Promise((resolve) => setTimeout(() => resolve, 200));
 	const jobs = [];
 
 	for (let i = 0; i < 200; i += 1) {
