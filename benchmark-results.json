@@ -1,14 +1,1 @@
-[
-	{ "name": "fastify-hello-world", "version": "4.26.0", "hasRouter": true, "requests": "42795.2", "latency": "22.87", "throughput": "7.67" },
-	{
-		"name": "fastify-listing-json",
-		"version": "4.26.0",
-		"hasRouter": true,
-		"requests": "22088.4",
-		"latency": "44.76",
-		"throughput": "5.84"
-	},
-	{ "name": "express-hello-world", "version": "4.18.2", "hasRouter": true, "requests": "10393.6", "latency": "95.63", "throughput": "1.85" },
-	{ "name": "fastify-listing", "version": "4.26.0", "hasRouter": true, "requests": "2224.5", "latency": "291.03", "throughput": "131.35" },
-	{ "name": "express-listing", "version": "4.18.2", "hasRouter": true, "requests": "1780.9", "latency": "324.22", "throughput": "105.24" }
-]
+[{"name":"fastify-hello-world","version":"4.26.2","hasRouter":true,"requests":"19006.4","latency":"0.73","throughput":"3.41"},{"name":"fastify-big-json","version":"4.26.2","hasRouter":true,"requests":"6475.6","latency":"3.36","throughput":"96.73"},{"name":"express-hello-world","version":"4.19.2","hasRouter":true,"requests":"6140.4","latency":"3.57","throughput":"1.10"},{"name":"fastify-fast-json-stringify-parser","version":"4.26.2","hasRouter":true,"requests":"5582.0","latency":"3.95","throughput":"83.38"},{"name":"express-fast-json-stringify-parser","version":"4.19.2","hasRouter":true,"requests":"2152.8","latency":"11.06","throughput":"32.93"},{"name":"express-big-json","version":"4.19.2","hasRouter":true,"requests":"2098.4","latency":"11.46","throughput":"32.06"}]

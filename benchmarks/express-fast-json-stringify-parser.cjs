@@ -1,6 +1,15 @@
 "use strict";
-const json = require("./big-json.json");
-const { opts } = require("./schema.cjs");
+const opts = {
+	type: "array",
+	items: {
+		type: "object",
+		properties: {
+			id: { type: "integer" },
+			title: { type: "string" },
+			employer: { type: "string" }
+		}
+	}
+};
 const fastJson = require("fast-json-stringify");
 
 const express = require("express");
@@ -16,16 +25,11 @@ app.disable("etag");
 app.disable("x-powered-by");
 
 app.use(require("cors")());
-const stringify = fastJson(opts.schema.response[200].properties);
 
-app.get("/", function (req, res) {
-	const body = stringify(json);
-	res.set("Content-Type", "application/json");
-	res.end(body);
-});
 app.use(cookieParser());
 // Use helmet to secure Express with various HTTP headers
 app.use(
+	// @ts-ignore
 	helmet({
 		contentSecurityPolicy: false,
 		crossOriginEmbedderPolicy: false,
@@ -39,6 +43,26 @@ app.use(compression());
 // global config
 // Use for http request debug (show errors only)
 app.use(logger("dev", { skip: (_, res) => res.statusCode < 400 }));
-app.use(express.static(path.resolve(process.cwd(), "public")));
+
+function Employee({ id = 0, title = "", employer = "" } = {}) {
+	this.id = id;
+	this.title = title;
+	this.employer = employer;
+}
+const stringify = fastJson(opts);
+app.get("/", function (req, res) {
+	const jobs = [];
+
+	for (let i = 0; i < 200; i += 1) {
+		jobs[i] = new Employee({
+			id: i,
+			title: "Testing JSON stringify performance",
+			employer: "fastJson"
+		});
+	}
+	const body = stringify(jobs);
+	res.set("Content-Type", "application/json");
+	res.end(body);
+});
 
 app.listen(3000);

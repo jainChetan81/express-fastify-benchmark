@@ -1,29 +1,36 @@
-'use strict'
+"use strict";
 
-const fastify = require('fastify')()
-const json = require('./big-json.json')
-const fastifyApp = require('fastify')()
-const path = require('path')
+const fastify = require("fastify")();
+const fastifyApp = require("fastify")();
+const path = require("path");
 
-fastifyApp.register(require('@fastify/helmet'), {
-  contentSecurityPolicy: false,
-  crossOriginEmbedderPolicy: false,
-  crossOriginResourcePolicy: false,
-  crossOriginOpenerPolicy: false,
-  global: true
-})
+fastifyApp.register(require("@fastify/helmet"), {
+	contentSecurityPolicy: false,
+	crossOriginEmbedderPolicy: false,
+	crossOriginResourcePolicy: false,
+	crossOriginOpenerPolicy: false,
+	global: true
+});
 
 // Compress all requests
-fastifyApp.register(require('@fastify/compress'), { global: false })
+fastifyApp.register(require("@fastify/compress"), { global: false });
 
-// Use for http request debug (show errors only)
-fastifyApp.register(require('@fastify/static'), {
-  root: path.join(process.cwd(), 'public'),
-  wildcard: false,
-  prefix: '/' // optional: default '/'
-})
-fastify.get('/', function (request, reply) {
-  reply.send(json)
-})
+function Employee({ id = 0, title = "", employer = "" } = {}) {
+	this.id = id;
+	this.title = title;
+	this.employer = employer;
+}
+fastify.get("/", function (request, reply) {
+	const jobs = [];
 
-fastify.listen({ port: 3000, host: '127.0.0.1' })
+	for (let i = 0; i < 200; i += 1) {
+		jobs[i] = new Employee({
+			id: i,
+			title: "Testing JSON stringify performance",
+			employer: "fastJson"
+		});
+	}
+	reply.send(jobs);
+});
+
+fastify.listen({ port: 3000, host: "127.0.0.1" });
