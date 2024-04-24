@@ -22,7 +22,7 @@ for (let i = 0; i < 100; i++) {
 	});
 }
 
-fastify.get("/", async function (request, reply) {
+fastify.get("/", opts, async function (request, reply) {
 	await new Promise((resolve) => setTimeout(resolve, 50));
 	reply.send(json);
 });
