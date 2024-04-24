@@ -2,7 +2,6 @@
 
 const { opts, getJobs } = require("./utils.cjs");
 const fastJson = require("fast-json-stringify");
-
 const express = require("express");
 const helmet = require("helmet");
 const compression = require("compression");
@@ -10,7 +9,6 @@ const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 
 const app = express();
-
 app.use(require("cors")());
 app.use(cookieParser());
 app.use(

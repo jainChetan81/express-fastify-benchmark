@@ -1,17 +1,17 @@
-import BigJson from "./benchmarks/big-json.json";
-import { opts } from "./benchmarks/schema.cjs";
+import { opts, getJobs } from "./benchmarks/utils.cjs";
 import fastJson from "fast-json-stringify";
-const stringify = fastJson(opts.schema.response[200].properties);
+// @ts-ignore
+const stringify = fastJson(opts.schema.response[200]);
 
 console.time("JSON STRINGIFY");
-for (let i = 0; i < 10000; i++) {
-	JSON.stringify(BigJson);
+for (let i = 0; i < 100000; i++) {
+	JSON.stringify(getJobs());
 }
 console.timeEnd("JSON STRINGIFY");
 
 console.time("FAST JSON STRINGIFY");
-for (let i = 0; i < 10000; i++) {
-	stringify(BigJson);
+for (let i = 0; i < 100000; i++) {
+	stringify(getJobs());
 }
 
 console.timeEnd("FAST JSON STRINGIFY");
