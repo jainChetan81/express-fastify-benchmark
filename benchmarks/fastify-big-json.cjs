@@ -1,7 +1,7 @@
 "use strict";
 
 const fastify = require("fastify")();
-const json = require("./big-json.json");
+const { getJobs } = require("./utils.cjs");
 const fastifyApp = require("fastify")();
 
 fastify.register(require("@fastify/cors"));
@@ -18,7 +18,7 @@ fastifyApp.register(require("@fastify/helmet"), {
 fastifyApp.register(require("@fastify/compress"), { global: true });
 
 fastify.get("/", function (request, reply) {
-	reply.send(json);
+	reply.send(getJobs());
 });
 
 fastify.listen({ port: 3000, host: "127.0.0.1" });

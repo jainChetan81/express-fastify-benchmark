@@ -1,5 +1,6 @@
 "use strict";
-const json = require("./big-json.json");
+
+const { getJobs } = require("./utils.cjs");
 
 const express = require("express");
 const helmet = require("helmet");
@@ -9,13 +10,10 @@ const cookieParser = require("cookie-parser");
 
 const app = express();
 
-app.disable("etag");
-app.disable("x-powered-by");
-
 app.use(require("cors")());
 
 app.get("/", function (req, res) {
-	res.json(json);
+	res.json(getJobs());
 });
 app.use(cookieParser());
 // Use helmet to secure Express with various HTTP headers
