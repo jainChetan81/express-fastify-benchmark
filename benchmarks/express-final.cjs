@@ -36,7 +36,7 @@ for (let i = 0; i < 100; i++) {
 }
 
 app.get("/", async function (req, res) {
-	await new Promise((resolve) => setTimeout(resolve, 100));
+	await new Promise((resolve) => setTimeout(resolve, 50));
 	const body = stringify(json);
 	res.set("Content-Type", "application/json");
 	res.end(body);
