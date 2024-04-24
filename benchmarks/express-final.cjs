@@ -1,5 +1,5 @@
 "use strict";
-const { opts, getJobs } = require("./utils.cjs");
+const { opts, json } = require("./complex.cjs");
 const fastJson = require("fast-json-stringify");
 
 const express = require("express");
@@ -28,7 +28,7 @@ app.use(compression());
 app.use(logger("dev", { skip: (_, res) => res.statusCode < 400 }));
 
 // @ts-ignore
-const stringify = fastJson(opts.schema.response[200]);
+const stringify = fastJson(opts.schema.response[200].properties);
 for (let i = 0; i < 100; i++) {
 	app.get(`/test${i}`, async function (req, res) {
 		res.send({ number: i });
@@ -37,7 +37,7 @@ for (let i = 0; i < 100; i++) {
 
 app.get("/", async function (req, res) {
 	await new Promise((resolve) => setTimeout(resolve, 100));
-	const body = stringify(getJobs());
+	const body = stringify(json);
 	res.set("Content-Type", "application/json");
 	res.end(body);
 });

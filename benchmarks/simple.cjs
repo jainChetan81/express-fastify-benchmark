@@ -34,4 +34,4 @@ function getJobs() {
 	}
 	return jobs;
 }
-module.exports = { opts, getJobs };
+module.exports = { opts, json: getJobs() };

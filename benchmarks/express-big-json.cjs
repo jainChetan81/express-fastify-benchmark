@@ -1,6 +1,6 @@
 "use strict";
 
-const { getJobs } = require("./utils.cjs");
+const { json } = require("./complex.cjs");
 
 const express = require("express");
 const helmet = require("helmet");
@@ -25,7 +25,7 @@ app.use(compression());
 app.use(logger("dev", { skip: (_, res) => res.statusCode < 400 }));
 
 app.get("/", function (req, res) {
-	res.json(getJobs());
+	res.json(json);
 });
 
 app.listen(3000);
